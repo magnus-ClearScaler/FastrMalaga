@@ -536,11 +536,31 @@ footer a { color: var(--text-muted); }
   .hero::before { animation: none; }
 }
 
+.bench-lbl { display: none; }
 @media (max-width: 760px) {
   .targeting { grid-template-columns: 1fr; }
   .price-row { grid-template-columns: 1fr auto; }
   .price-row .price-was { display: none; }
   .price-row.head { display: none; }
+  /* Benchmark table: stack into labelled rows on mobile */
+  .bench .price-row { grid-template-columns: 1fr; gap: 4px; }
+  .bench .price-row .price-now {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 16px;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px solid var(--border);
+  }
+  .bench .price-row .bench-lbl {
+    display: inline;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
 }
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
@@ -738,7 +758,7 @@ footer a { color: var(--text-muted); }
       </div>
     </div>
 
-    <div class="targeting reveal-stagger" style="grid-template-columns:1fr 1fr">
+    <div class="targeting reveal-stagger">
       <div class="target-panel feature">
         <div class="target-h">How we did it</div>
         <p style="font-size:17px;margin-bottom:4px">Capture demand that already exists.</p>
@@ -765,7 +785,7 @@ footer a { color: var(--text-muted); }
     </div>
 
     <div class="price-item-sub" style="margin-top:36px;margin-bottom:-8px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;color:var(--primary)">BaggageTAXI campaign benchmarks · UAE · past client results</div>
-    <div class="pricing" style="margin-top:16px">
+    <div class="pricing bench" style="margin-top:16px">
       <div class="price-row head">
         <div>Campaign</div>
         <div>Click-through rate</div>
@@ -776,16 +796,16 @@ footer a { color: var(--text-muted); }
           <div class="price-item-name">Search</div>
           <div class="price-item-sub">High-intent tourist queries · the core profit engine</div>
         </div>
-        <div class="price-now">8%</div>
-        <div class="price-now">6%</div>
+        <div class="price-now"><span class="bench-lbl">Click-through rate</span>8%</div>
+        <div class="price-now"><span class="bench-lbl">Conversion rate</span>6%</div>
       </div>
       <div class="price-row">
         <div>
           <div class="price-item-name">Performance Max</div>
           <div class="price-item-sub">Aggressive reach &amp; brand coverage across Google's network</div>
         </div>
-        <div class="price-now">3%</div>
-        <div class="price-now">1.5%</div>
+        <div class="price-now"><span class="bench-lbl">Click-through rate</span>3%</div>
+        <div class="price-now"><span class="bench-lbl">Conversion rate</span>1.5%</div>
       </div>
     </div>
     <ul class="price-footnotes">
